@@ -1,92 +1,52 @@
-﻿
-
-class Program
+﻿class Program
 {
     static void Main(string[] args)
     {
         
-
-        bool rodando = true;
-
-        List<Livro> livrosApp = new List<Livro>();
-
         static void Menu()
         {
-
+            Console.WriteLine("Seja bem-vindo ao meu primeiro programa solo!");
+            Console.WriteLine("Qual é seu nome?");
+            string nome = Console.ReadLine();
             Console.Clear();
-            Console.WriteLine("Seja bem vindo ao WayBooks!");
+            Console.WriteLine($"Muito prazer, {nome}!");
+            Console.WriteLine("Vamos começar?");
+            Console.WriteLine("Primeiro, selecione uma das opções abaixo: ");
+            Console.WriteLine("1 - Adicionar um livro");
+            Console.WriteLine("2 - Pesquisar por um livro");
+            Console.WriteLine("3 - Excluir um livro");
+            Console.WriteLine("4 - Sair ");
+            int resposta = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("Selecione o que você deseja:");
-            Console.WriteLine("1 - Cadastrar livro");
-            Console.WriteLine("2 - Listar livros");
-            Console.WriteLine("3 - Sair");
-
-
-            Console.Write("Digite a opção desejada: ");
-        }
-
-        static void CadastrarLivro(List<Livro> livro)
-        {
-            Console.Clear();
-            Livro novoLivro = new Livro();
-
-            Console.WriteLine("Digite o título do livro que deseja cadastrar:");
-            novoLivro.Titulo = Console.ReadLine();
-
-
-            Console.WriteLine("Agora, digite o nome do autor:");
-            novoLivro.Autor = Console.ReadLine();
-
-
-            Console.WriteLine("Pra finalizar, digite o ano do livro:");
-            novoLivro.Ano = int.Parse(Console.ReadLine());
-
-            livro.Add(novoLivro);
-
-            Console.Clear();
-
-            Console.WriteLine("Livro cadastrado! \n");
-            Console.WriteLine($"Título: {novoLivro.Titulo}");
-            Console.WriteLine($"Autor: {novoLivro.Autor}");
-            Console.WriteLine($"Ano: {novoLivro.Ano}");
-
-            Console.WriteLine("\nPressione qualquer tecla para voltar ao menu...");
-            Console.ReadKey();
-        }
-
-        static void ListarLivros(List<Livro> livros)
-        {
-            Console.Clear();
-            foreach (var livro in livros)
+            if(resposta == 1)
             {
-                Console.WriteLine($"{livro.Titulo} - {livro.Autor} ({livro.Ano})");
-            }
-            Console.WriteLine("\nPressione qualquer tecla para voltar...");
-            Console.ReadKey();
-        }
-
-
-        while (rodando)
-        {
-
-            Menu();
-
-            int option = int.Parse(Console.ReadLine());
-            switch (option)
-            {
-                case 1:
-                    CadastrarLivro(livrosApp);
-                    break;
-
-                case 2:
-                    ListarLivros(livrosApp);
-                    break;
-
-                case 3:
-                    rodando = false;
-                    break;
+                addBook();
             }
         }
+
+        static void addBook()
+        {
+            Console.Clear();
+            Console.WriteLine("Se você deseja adicionar um livro, você está no lugar certo!");
+            Console.Write("Primeiro, digite o nome do livro: ");
+            string livroNome = Console.ReadLine();
+            Console.Write("Perfeito! Agora me passa o nome do autor: ");
+            string autor = Console.ReadLine();
+            Console.Write("Agora para finalizar, diga a data de lançamento do livro: ");
+            string data = Console.ReadLine();
+            Console.WriteLine($"\nEstamos registrando o livro:\n");
+            Console.WriteLine($"Nome: {livroNome}");
+            Console.WriteLine($"Autor: {autor}");
+            Console.WriteLine($"Data: {data}");
+            Console.Write($"\nDeseja confirmar? (S/N)");
+            string confirmation = Console.ReadLine();
+
+        }
+
+        Menu();
+
         
+        
+
     }
 }
