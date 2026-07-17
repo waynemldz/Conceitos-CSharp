@@ -41,6 +41,52 @@
             Console.Write($"\nDeseja confirmar? (S/N)");
             string confirmation = Console.ReadLine();
 
+            if( confirmation == "N")
+            {
+                Console.WriteLine("O que você deseja?");
+                Console.WriteLine("1 - Ajustar uma informação");
+                Console.WriteLine("2 - Voltar ao menu principal");
+                Console.WriteLine("3 - Sair");
+                Console.Write("Digite: ");
+                string respostaCN =  Console.ReadLine();
+
+                if (respostaCN == "1")
+                {
+                   
+                }else if (respostaCN == "2") 
+                {
+                    Menu();
+                }else if (respostaCN == "3")
+                {
+                    Console.WriteLine("Até a próxima!");
+                }
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Livro adicionado!");
+                Console.WriteLine("O que você deseja fazer agora?");
+                Console.WriteLine("1 - Adicionar um novo livro");
+                Console.WriteLine("2 - Voltar ao menu principal");
+                Console.WriteLine("3 - Sair");
+                Console.Write("Digite: ");
+                string respostaCS = Console.ReadLine();
+
+                if (respostaCS == "1")
+                {
+                    addBook();
+                }
+                else if (respostaCS == "2") 
+                {
+                    Menu();
+                }
+                else
+                {
+                    Console.WriteLine("Até a próxima!");
+                }
+
+            }
+
         }
 
         Menu();
